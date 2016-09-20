@@ -11,6 +11,6 @@ namespace UST_Careers.Domain.Abstract
     {
         IEnumerable<JobOffer> JobOffers { get; }
         void SaveJobOffer(JobOffer jobOffer);
-        JobOffer DeleteProduct(int productID);
+        JobOffer DeleteJobOffer(int productID);
     }
 }

@@ -43,7 +43,7 @@ namespace UST_Careers.Domain.Concrete
             }
             context.SaveChanges();
         }
-        public JobOffer DeleteProduct(int id)
+        public JobOffer DeleteJobOffer(int id)
         {
             JobOffer dbEntry = context.JobOffers.Find(id);
             if (dbEntry != null)

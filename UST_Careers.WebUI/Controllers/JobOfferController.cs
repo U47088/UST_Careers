@@ -47,8 +47,8 @@ namespace UST_Careers.WebUI.Controllers
 
         public ActionResult Delete(int jobOfferId)
         {
-            JobOffer deletedProduct = repository.DeleteProduct(jobOfferId);
-            if (deletedProduct != null)
+            JobOffer deletedJobOffer = repository.DeleteJobOffer(jobOfferId);
+            if (deletedJobOffer != null)
             {
                 TempData["message"] = string.Format("Job Offer was deleted");
             }
