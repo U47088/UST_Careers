@@ -24,13 +24,9 @@ namespace UST_Careers.WebUI.Controllers
         {
             return View("Edit", new JobOffer());
         }
-        public ActionResult Edit(int jobOfferId)
+        public ViewResult Edit(int jobOfferId)
         {
             JobOffer jobOffer = repository.JobOffers.FirstOrDefault(j => j.id == jobOfferId);
-            if (jobOffer == null)
-            {
-                return HttpNotFound();
-            }
             return View(jobOffer);
         }
         [HttpPost]
