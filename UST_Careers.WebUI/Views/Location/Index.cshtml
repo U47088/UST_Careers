@@ -1,0 +1,17 @@
+﻿@using UST_Careers.Domain.Entities
+@model IEnumerable<Location>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var p in Model)
+{
+    <div>
+        <h3>@p.city</h3>
+        @p.street
+    </div>
+
+}
+

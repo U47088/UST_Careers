@@ -1,0 +1,7 @@
+packages
+UST_Careers.Domain/bin
+UST_Careers.Domain/obj
+UST_Careers.UnitTests/bin
+UST_Careers.UnitTests/obj
+UST_Careers.WebUI/bin
+UST_Careers.WebUI/obj
