@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace UST_Careers.Domain.Entities
 {
-    public class ApplicationForms_Files
+    public class Category
     {
-        public int id { get; set; }
-        public int application_form_id { get; set; }
-        public int file_id { get; set; }
+        public int id { get; set; }        
+        public int? parent_id { get; set; }
+        public string name { get; set; }
     }
 }

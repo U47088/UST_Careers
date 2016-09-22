@@ -1,41 +1,34 @@
-﻿@model UST_Careers.Domain.Entities.JobOffer
+﻿@model UST_Careers.WebUI.Models.JobOfferViewModel
 
 @{
     ViewBag.Title = "Edit";
 }
 
-<div class="panel">
-    <div class="panel-heading">
-        <h3>Edit @Model.title</h3>
+@using (Html.BeginForm("Edit", "JobOffer"))
+{
+    @Html.HiddenFor(model => model.JobOffer.id)
+    @Html.HiddenFor(model => model.JobOffer.hash)
+    @Html.HiddenFor(model => model.JobOffer.publish_date)
+    <div class="form-group">
+        <label>Title</label>
+        @Html.TextBoxFor(m => m.JobOffer.title, new { @class = "form-control", @placeholder = "Enter title" })
+        @Html.ValidationMessageFor(model => model.JobOffer.title, "", new { @class = "text-danger" })
     </div>
-    @using (Html.BeginForm("Edit", "JobOffer"))
-    {
-        <div class="panel-body">
-            @foreach (var property in ViewData.ModelMetadata.Properties)
-            {
-                if (property.PropertyName != "id" && property.PropertyName != "hash" && property.PropertyName != "publish_date")
-                {
-                    <div class="form-group">
-                        <label>@(property.DisplayName ?? property.PropertyName)</label>
-                        @if (property.PropertyName == "description")
-                        {
-                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
-                        }
-                        else
-                        {
-                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
-                        }
-                        @Html.ValidationMessage(property.PropertyName)
-                    </div>
-                }
-            }
-        </div>
-        <div class="panel-footer">
-            <input type="submit" value="Save" class="btn btn-primary" />
-            @Html.ActionLink("Cancel and return to List", "Index", null, new
-            {
-                @class = "btn btn-default"
-            })
-        </div>
-    }
-</div>
+    <div class="form-group">
+        <label>Description</label>
+        @Html.TextAreaFor(m => m.JobOffer.description, new { @class = "form-control", @placeholder = "Enter description", @rows = 10 })
+        @Html.ValidationMessageFor(model => model.JobOffer.description, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Category</label>
+        @Html.DropDownListFor(model => model.JobOffer.category_id, Model.CategorySelectListItems, "--Select--")
+        @Html.ValidationMessageFor(model => model.JobOffer.category_id, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        @Html.DropDownListFor(model => model.JobOffer.location_id, Model.LocationSelectListItems, "--Select--")
+        @Html.ValidationMessageFor(model => model.JobOffer.location_id, "", new { @class = "text-danger" })
+    </div>
+    <input type="submit" value="Save" class="btn btn-primary" />
+    <a href="@Url.Action("Index", "JobOffer")" class="btn btn-primary">Back</a>
+}

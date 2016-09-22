@@ -77,14 +77,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryRepository.cs" />
     <Compile Include="Abstract\IJobOfferRepository.cs" />
     <Compile Include="Abstract\ILocationRepository.cs" />
+    <Compile Include="Concrete\EFCategoryRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFJobOfferRepository.cs" />
     <Compile Include="Concrete\EFLocationRepository.cs" />
     <Compile Include="Entities\ApplicationForm.cs" />
-    <Compile Include="Entities\ApplicationForms_Files.cs" />
-    <Compile Include="Entities\Categories.cs" />
+    <Compile Include="Entities\ApplicationForm_File.cs" />
+    <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\File.cs" />
     <Compile Include="Entities\JobOffer.cs" />
     <Compile Include="Entities\Location.cs" />

@@ -30,6 +30,7 @@ namespace UST_Careers.WebUI.Infrastructure
             // put bindings here
             kernel.Bind<ILocationRepository>().To<EFLocationRepository>();
             kernel.Bind<IJobOfferRepository>().To<EFJobOfferRepository>();
+            kernel.Bind<ICategoryRepository>().To<EFCategoryRepository>();
         }
     }
 }

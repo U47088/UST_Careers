@@ -4,18 +4,18 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Job offer list</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "JobOffer")" class="btn btn-primary">Add</a>
 </p>
 <div class="bs-example" data-example-id="striped-table">
     <table class="table table-striped">
         <tr>
-            <th>@Html.DisplayNameFor(model => model.title)</th>
-            <th>@Html.DisplayNameFor(model => model.description)</th>
-            <th>@Html.DisplayNameFor(model => model.publish_date)</th>
-            <th>@Html.DisplayNameFor(model => model.category_id)</th>
-            <th></th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Publish date</th>
+            <th>Category</th>
+            <th>Action</th>
         </tr>
         @foreach (var jobOffer in Model)
         {
@@ -23,10 +23,10 @@
                 <td>@Html.DisplayFor(modeljobOffer => jobOffer.title)</td>
                 <td>@Html.DisplayFor(modeljobOffer => jobOffer.description)</td>
                 <td>@Html.DisplayFor(modeljobOffer => jobOffer.publish_date)</td>
-                <td>@Html.DisplayFor(modeljobOffer => jobOffer.category_id)</td>
+                <td>@Html.DisplayFor(modeljobOffer => jobOffer.categories.name)</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { jobOfferId = jobOffer.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { jobOfferId = jobOffer.id })
+                    <a href="@Url.Action("Edit", "JobOffer", new { jobOfferId = jobOffer.id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", "JobOffer", new { jobOfferId = jobOffer.id })" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }

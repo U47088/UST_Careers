@@ -12,5 +12,6 @@ namespace UST_Careers.Domain.Concrete
     {
         public DbSet<Location> Locations { get; set; }
         public DbSet<JobOffer> JobOffers { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

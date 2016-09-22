@@ -21,8 +21,8 @@ namespace UST_Careers.Domain.Concrete
         {
             if (jobOffer.id == 0)
             {
-                jobOffer.publish_date = DateTime.Now.ToShortDateString();
-                jobOffer.hash = generateHash();                
+                jobOffer.publish_date = DateTime.Now.ToString("dd-MM-yyyy HH:mm");
+                jobOffer.hash = jobOffer.GetHashCode().ToString();               
                 context.JobOffers.Add(jobOffer);
             }
             else
@@ -52,11 +52,6 @@ namespace UST_Careers.Domain.Concrete
                 context.SaveChanges();
             }
             return dbEntry;
-        }
-
-        private string generateHash()
-        {
-            return new Guid().ToString();
         }
     }
 }
